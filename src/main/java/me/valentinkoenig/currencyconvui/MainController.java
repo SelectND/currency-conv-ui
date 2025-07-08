@@ -1,6 +1,5 @@
 package me.valentinkoenig.currencyconvui;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
@@ -8,54 +7,53 @@ import javafx.scene.control.TextField;
 public class MainController {
     public String baseCurrency;
     public String targetCurrency;
-    public double baseCurrencyAmount;
-    public double targetCurrencyAmount;
 
     @FXML
     public TextField BaseCurrencyAmount;
 
     @FXML
-    public ChoiceBox BaseChoiceBox;
+    public ChoiceBox<String> BaseChoiceBox;
 
     @FXML
     public TextField TargetCurrencyAmount;
 
     @FXML
-    public ChoiceBox TargetChoiceBox;
+    public ChoiceBox<String> TargetChoiceBox;
 
     @FXML
     public void initialize() {
         BaseChoiceBox.setValue(BaseChoiceBox.getItems().getFirst());
         TargetChoiceBox.setValue(TargetChoiceBox.getItems().get(1));
+        System.out.println("BaseCurrencyAmount: " + TargetChoiceBox.getItems().getFirst().getClass());
 
         if (BaseChoiceBox.getSelectionModel().getSelectedItem() != null) {
-            baseCurrency = BaseChoiceBox.getSelectionModel().getSelectedItem().toString();
+            baseCurrency = BaseChoiceBox.getSelectionModel().getSelectedItem();
         }
 
         if (TargetChoiceBox.getSelectionModel().getSelectedItem() != null) {
-            targetCurrency = TargetChoiceBox.getSelectionModel().getSelectedItem().toString();
+            targetCurrency = TargetChoiceBox.getSelectionModel().getSelectedItem();
         }
 
 
     }
 
     @FXML
-    public void baseCurrencyChosen(ActionEvent actionEvent) {
+    public void baseCurrencyChosen() {
         if (BaseChoiceBox.getSelectionModel().getSelectedItem() != null) {
-            baseCurrency = BaseChoiceBox.getSelectionModel().getSelectedItem().toString();
+            baseCurrency = BaseChoiceBox.getSelectionModel().getSelectedItem();
         }
     }
 
     @FXML
-    public void targetCurrencyChosen(ActionEvent actionEvent) {
+    public void targetCurrencyChosen() {
         if (TargetChoiceBox.getSelectionModel().getSelectedItem() != null) {
-            targetCurrency = TargetChoiceBox.getSelectionModel().getSelectedItem().toString();
+            targetCurrency = TargetChoiceBox.getSelectionModel().getSelectedItem();
         }
 
     }
 
     @FXML
-    public void startConversion(ActionEvent actionEvent) {
+    public void startConversion() {
         String baseCurrencyAmountText = BaseCurrencyAmount.getText();
         if(!baseCurrencyAmountText.isEmpty()) {
             try {
@@ -64,8 +62,8 @@ public class MainController {
                 currencyRequest.setBaseCurrency(baseCurrency);
                 currencyRequest.setTargetCurrency(targetCurrency);
                 currencyRequest.setBaseAmount(baseCurrencyAmount);
-                double exchangeRate = currencyRequest.makeRequest();
-                TargetCurrencyAmount.setText(String.valueOf(exchangeRate*currencyRequest.getBaseAmount()));
+                double targetCurrencyAmount = currencyRequest.makeRequest();
+                TargetCurrencyAmount.setText(String.valueOf(targetCurrencyAmount));
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }

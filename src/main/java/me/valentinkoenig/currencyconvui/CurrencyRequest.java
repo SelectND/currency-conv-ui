@@ -24,8 +24,7 @@ public class CurrencyRequest {
     private String baseCurrency; // Base currency to be converted from
     private String targetCurrency; // Target currency to be converted to
     private double baseAmount; // Amount in base currency to be converted
-    private double targetAmount; // Converted amount in target currency
-    public String[] supportedCurrencies = { "EUR", "USD", "JPY", "BGN", "CZK", "DKK", "GBP", "HUF", "PLN", "RON",
+    private final String[] supportedCurrencies = { "EUR", "USD", "JPY", "BGN", "CZK", "DKK", "GBP", "HUF", "PLN", "RON",
             "SEK", "CHF", "ISK", "NOK", "HRK", "RUB", "TRY", "AUD", "BRL", "CAD",
             "CNY", "HKD", "IDR", "ILS", "INR", "KRW", "MXN", "MYR", "NZD", "PHP",
             "SGD", "THB", "ZAR"
@@ -82,16 +81,6 @@ public class CurrencyRequest {
         this.baseAmount = baseAmount;
     }
 
-    public String getBaseCurrency() { return this.baseCurrency; }
-
-    public String getTargetCurrency() { return this.targetCurrency; }
-
-    public double getBaseAmount() { return this.baseAmount; }
-
-    public double getTargetAmount() { return this.targetAmount; }
-
-    public String[] getSupportedCurrencies() { return this.supportedCurrencies; }
-
     /**
      * Makes a request to the FreeCurrencyAPI service to retrieve the exchange rate.
      *
@@ -106,18 +95,6 @@ public class CurrencyRequest {
         httpURLConnection.setRequestMethod("GET");
         httpURLConnection.setConnectTimeout(5000);
         httpURLConnection.setReadTimeout(5000);
-        // HTTP Code handling (currently passive)
-        /*
-        int status = httpURLConnection.getResponseCode();
-        Reader streamReader;
-
-        // Handles HTTP status codes
-        if (status > 299) {
-            streamReader = new InputStreamReader(httpURLConnection.getErrorStream());
-        } else {
-            streamReader = new InputStreamReader(httpURLConnection.getInputStream());
-        }
-        */
 
         BufferedReader in = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream()));
         StringBuilder content = new StringBuilder();
@@ -127,7 +104,8 @@ public class CurrencyRequest {
         }
         in.close();
         httpURLConnection.disconnect();
-        return parseRequest(content.toString());
+        double parsedRequest = parseRequest(content.toString());
+        return parsedRequest*baseAmount;
     }
 
     /**

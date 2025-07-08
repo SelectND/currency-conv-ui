@@ -7,110 +7,112 @@
 
 <?import java.lang.String?>
 <?import javafx.collections.FXCollections?>
-<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.valentinkoenig.currencyconvui.MainController">
+<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="me.valentinkoenig.currencyconvui.MainController">
     <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
     </padding>
-   <children>
-      <Label text="CurrencyConvUI">
-         <font>
-            <Font size="30.0" />
-         </font></Label>
-       <TextField fx:id="BaseCurrencyAmount">
-         <tooltip>
-            <Tooltip text="Enter amount in base currency" />
-         </tooltip></TextField>
-       <ChoiceBox prefWidth="150.0" fx:id="BaseChoiceBox" onAction="#baseCurrencyChosen">
-           <items>
-               <FXCollections fx:factory="observableArrayList">
-                   <String fx:value="EUR" />
-                   <String fx:value="USD" />
-                   <String fx:value="JPY" />
-                   <String fx:value="BGN" />
-                   <String fx:value="CZK" />
-                   <String fx:value="DKK" />
-                   <String fx:value="GBP" />
-                   <String fx:value="HUF" />
-                   <String fx:value="PLN" />
-                   <String fx:value="RON" />
-                   <String fx:value="SEK" />
-                   <String fx:value="CHF" />
-                   <String fx:value="ISK" />
-                   <String fx:value="NOK" />
-                   <String fx:value="HRK" />
-                   <String fx:value="RUB" />
-                   <String fx:value="TRY" />
-                   <String fx:value="AUD" />
-                   <String fx:value="BRL" />
-                   <String fx:value="CAD" />
-                   <String fx:value="CNY" />
-                   <String fx:value="HKD" />
-                   <String fx:value="IDR" />
-                   <String fx:value="ILS" />
-                   <String fx:value="INR" />
-                   <String fx:value="KRW" />
-                   <String fx:value="MXN" />
-                   <String fx:value="MYR" />
-                   <String fx:value="NZD" />
-                   <String fx:value="PHP" />
-                   <String fx:value="SGD" />
-                   <String fx:value="THB" />
-                   <String fx:value="ZAR" />
-               </FXCollections>
-           </items>
+
+
+    <Label text="CurrencyConvUI">
+        <font>
+          <Font size="30.0"/>
+        </font>
+    </Label>
+    <TextField fx:id="BaseCurrencyAmount">
         <tooltip>
-            <Tooltip text="Select base currency"/>
+         <Tooltip text="Enter amount in base currency"/>
         </tooltip>
-       </ChoiceBox>
-      <TextField editable="false" text="Amount in target currency will be displayed here" fx:id="TargetCurrencyAmount">
-         <tooltip>
-            <Tooltip text="Amount in target currency will be displayed here" />
-         </tooltip></TextField>
-       <ChoiceBox prefWidth="150.0" fx:id="TargetChoiceBox" onAction="#targetCurrencyChosen">
-           <items>
-               <FXCollections fx:factory="observableArrayList">
-                   <String fx:value="EUR" />
-                   <String fx:value="USD" />
-                   <String fx:value="JPY" />
-                   <String fx:value="BGN" />
-                   <String fx:value="CZK" />
-                   <String fx:value="DKK" />
-                   <String fx:value="GBP" />
-                   <String fx:value="HUF" />
-                   <String fx:value="PLN" />
-                   <String fx:value="RON" />
-                   <String fx:value="SEK" />
-                   <String fx:value="CHF" />
-                   <String fx:value="ISK" />
-                   <String fx:value="NOK" />
-                   <String fx:value="HRK" />
-                   <String fx:value="RUB" />
-                   <String fx:value="TRY" />
-                   <String fx:value="AUD" />
-                   <String fx:value="BRL" />
-                   <String fx:value="CAD" />
-                   <String fx:value="CNY" />
-                   <String fx:value="HKD" />
-                   <String fx:value="IDR" />
-                   <String fx:value="ILS" />
-                   <String fx:value="INR" />
-                   <String fx:value="KRW" />
-                   <String fx:value="MXN" />
-                   <String fx:value="MYR" />
-                   <String fx:value="NZD" />
-                   <String fx:value="PHP" />
-                   <String fx:value="SGD" />
-                   <String fx:value="THB" />
-                   <String fx:value="ZAR" />
-               </FXCollections>
-           </items>
-           <tooltip>
-               <Tooltip text="Select target currency"/>
-           </tooltip>
-       </ChoiceBox>
-       
-      <Button mnemonicParsing="false" text="Convert!" onAction="#startConversion"/>
-   </children>
+    </TextField>
+    <ChoiceBox prefWidth="150.0" fx:id="BaseChoiceBox" onAction="#baseCurrencyChosen">
+        <items>
+            <FXCollections fx:factory="observableArrayList">
+                <String fx:value="EUR"/>
+                <String fx:value="USD"/>
+                <String fx:value="JPY"/>
+                <String fx:value="BGN"/>
+                <String fx:value="CZK"/>
+                <String fx:value="DKK"/>
+                <String fx:value="GBP"/>
+                <String fx:value="HUF"/>
+                <String fx:value="PLN"/>
+                <String fx:value="RON"/>
+                <String fx:value="SEK"/>
+                <String fx:value="CHF"/>
+                <String fx:value="ISK"/>
+                <String fx:value="NOK"/>
+                <String fx:value="HRK"/>
+                <String fx:value="RUB"/>
+                <String fx:value="TRY"/>
+                <String fx:value="AUD"/>
+                <String fx:value="BRL"/>
+                <String fx:value="CAD"/>
+                <String fx:value="CNY"/>
+                <String fx:value="HKD"/>
+                <String fx:value="IDR"/>
+                <String fx:value="ILS"/>
+                <String fx:value="INR"/>
+                <String fx:value="KRW"/>
+                <String fx:value="MXN"/>
+                <String fx:value="MYR"/>
+                <String fx:value="NZD"/>
+                <String fx:value="PHP"/>
+                <String fx:value="SGD"/>
+                <String fx:value="THB"/>
+                <String fx:value="ZAR"/>
+            </FXCollections>
+        </items>
+     <tooltip>
+         <Tooltip text="Select base currency"/>
+     </tooltip>
+    </ChoiceBox>
+    <TextField editable="false" text="Amount in target currency will be displayed here" fx:id="TargetCurrencyAmount">
+        <tooltip>
+          <Tooltip text="Amount in target currency will be displayed here"/>
+        </tooltip>
+    </TextField>
+    <ChoiceBox prefWidth="150.0" fx:id="TargetChoiceBox" onAction="#targetCurrencyChosen">
+        <items>
+            <FXCollections fx:factory="observableArrayList">
+                <String fx:value="EUR"/>
+                <String fx:value="USD"/>
+                <String fx:value="JPY"/>
+                <String fx:value="BGN"/>
+                <String fx:value="CZK"/>
+                <String fx:value="DKK"/>
+                <String fx:value="GBP"/>
+                <String fx:value="HUF"/>
+                <String fx:value="PLN"/>
+                <String fx:value="RON"/>
+                <String fx:value="SEK"/>
+                <String fx:value="CHF"/>
+                <String fx:value="ISK"/>
+                <String fx:value="NOK"/>
+                <String fx:value="HRK"/>
+                <String fx:value="RUB"/>
+                <String fx:value="TRY"/>
+                <String fx:value="AUD"/>
+                <String fx:value="BRL"/>
+                <String fx:value="CAD"/>
+                <String fx:value="CNY"/>
+                <String fx:value="HKD"/>
+                <String fx:value="IDR"/>
+                <String fx:value="ILS"/>
+                <String fx:value="INR"/>
+                <String fx:value="KRW"/>
+                <String fx:value="MXN"/>
+                <String fx:value="MYR"/>
+                <String fx:value="NZD"/>
+                <String fx:value="PHP"/>
+                <String fx:value="SGD"/>
+                <String fx:value="THB"/>
+                <String fx:value="ZAR"/>
+            </FXCollections>
+        </items>
+        <tooltip>
+            <Tooltip text="Select target currency"/>
+        </tooltip>
+    </ChoiceBox>
 
-
+    <Button mnemonicParsing="false" text="Convert!" onAction="#startConversion"/>
 </VBox>
